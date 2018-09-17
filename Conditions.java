@@ -24,6 +24,16 @@ public class Conditions {
     System.out.println("");
   }
 
+  public int getWordCount(String w){
+    int count = 0;
+    for (int i = 0; i < words.size(); i++){
+      if (words.get(i).equals(w)){
+        count++;
+      }
+    }
+    return count;
+  }
+
 
   public ArrayList<String> getWords() {
     return words;
@@ -58,6 +68,8 @@ public class Conditions {
     System.out.println("The story: \n ===\n\n");
     myLib.printList(myLib.getWords());
     System.out.println("\n");
+
+    System.out.println("Word: Bee : " + Integer.toString(myLib.getWordCount("bee") + myLib.getWordCount("Bee")));
 
 
   }
