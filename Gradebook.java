@@ -3,6 +3,7 @@ import java.io.*;
 
 public class Gradebook{
 
+
   public static void main(String[] args) {
 
     Gradebook gb = new Gradebook();
@@ -22,7 +23,7 @@ public class Gradebook{
     int D = 0;
     int F = 0;
 
-    Double doub;
+    Double doub =  null;
 
     for(int i = 0; i < grades.length(); i = i+5){//for loop to translate numbers from grades string into Double
       doub = Double.parseDouble(grades.substring(i, i+4));
@@ -90,7 +91,7 @@ public class Gradebook{
         while (sc.hasNext()){
           /*forRos.append(sc.next() + " ");
           forRos.append(sc.next() + " " + "\n");*/
-          Scanner skipper = new Scanner(sc);
+          Scanner skipper = new Scanner(randtxt);
           skipper.skip(":" + doub + "%");
           forRos.append(skipper.next() + " ");
           forRos.append(skipper.next() + " " + "\n");
