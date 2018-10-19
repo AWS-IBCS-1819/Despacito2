@@ -1,73 +1,76 @@
-import java.io.*;
+
 import java.util.*;
 
-public class Deck{
+public class Deck {
 
-  ArrayList<String> cards;
+  ArrayList<Card> cards;
+  ArrayList<Card> discard;
 
-  public Deck(){
-    cards =  new ArrayList<String>();
-    int k = 1;
-    while(k <= 1){
-    for(int m = 1; m <= 11; m++){
-      if(m == 1){
-        cards.add("Ace Diamonds");
-      }
-      else if(m == 11){
-        cards.add("Diamonds J");
-        cards.add("Diamonds Q");
-        cards.add("Diamonds K");
-      }
-      else{
-        cards.add(m +" Diamonds");
-      }
-    }
-    for(int m = 1; m <= 11; m++){
-      if(m == 1){
-        cards.add("Ace Hearts");
-      }
-      else if(m == 11){
-        cards.add("Hearts J");
-        cards.add("Hearts Q");
-        cards.add("Hearts K");
-      }
-      else{
-        cards.add(m +" Hearts");
-      }
-    }
-    for(int m = 1; m <= 11; m++){
-      if(m == 1){
-        cards.add("Ace Clubs");
-      }
-      else if(m == 11){
-        cards.add("Clubs J");
-        cards.add("Clubs Q");
-        cards.add("Clubs K");
-      }
-      else{
-        cards.add(m +" Clubs");
-      }
-    }
-    for(int m = 1; m <= 11; m++){
-      if(m == 1){
-        cards.add("Ace Spades");
-      }
-      else if(m == 11){
-        cards.add("Spades J");
-        cards.add("Spades Q");
-        cards.add("Spades K");
-      }
-      else{
-        cards.add(m +" Spades");
-      }
-    }
+  public Card drawCard() {
+    Card c = cards.get(0);
+    cards.remove(0);
+    discard.add(c);
+    return c;
+  }
 
-    k++;
-    }
+  public void reset() {
+    cards.addAll(discard);
+    discard.clear();
+  }
 
+  public void shuffle() {
+    Random r = new Random();
+    ArrayList<Card> shuffled = new ArrayList<Card>();
 
+    int[] ar = r.ints(5200, 0, 52).distinct().toArray();
+    for (int i = 0; i < 52; i ++) {
+      shuffled.add(cards.get(ar[i]));
     }
-  public static void main(String[] args) {
+    cards = shuffled;
+  }
+
+  public Deck() {
+    cards = new ArrayList<Card>();
+    discard = new ArrayList<Card>();
+
+    for (int i = 1; i <= 13; i++) {
+      for (int j = 1; j <= 4; j++) {
+        String num;
+        String suit;
+        if (i == 11) {
+          num = "Jack";
+        }
+        else if (i == 12) {
+          num = "Queen";
+        }
+        else if (i == 13) {
+          num = "King";
+        }
+        else if (i == 1) {
+          num = "Ace";
+        }
+        else {
+          num = Integer.toString(i);
+        }
+        if (j == 1) {
+          suit = "Diamonds";
+        }
+        else if (j == 2) {
+          suit = "Clubs";
+        }
+        else if (j == 3) {
+          suit = "Hearts";
+        }
+        else {
+          suit = "Spades";
+        }
+        Card c = new Card();
+        c.setName(num + " of " + suit);
+        c.setValue(i);
+        cards.add(c);
+      }
+    }
 
   }
+
 }
