@@ -34,7 +34,7 @@ public class Blackjack extends Card{
 
 
   public Integer calculateHand(ArrayList<Card> h) {//do the math
-    Card c;
+
     int k = 0;
     for(int i = 0; i < h.size(); i++){
       k = k + h.get(i).getValue();
