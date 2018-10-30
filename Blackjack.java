@@ -20,6 +20,15 @@ public class Blackjack extends Card{
     }
   }
 
+  public String cardName(ArrayList<Card> d){
+    String name = " ";
+    for (int i = 0; i < d.size(); i++){
+      d.get(i).getName();
+      name = name + d.get(i).getName();
+    }
+    return name;
+  }
+
 
 
 
@@ -36,12 +45,39 @@ public class Blackjack extends Card{
   }
 
   public static void main(String[] args) {
+    Blackjack b = new Blackjack();
+    Boolean game = true;
     Scanner sc = new Scanner(System.in);
-    System.out.println("Play Blackjack?");
-    System.out.println("1. Yes");
-    System.out.println("2. No");
-    if(sc.nextInt() == 1){
+    while(game = true){
+      System.out.println (" 1.Hit\n 2.Stay\n 3.Quit");
+      if(sc.nextLine() == "1"){
+        userHand.add(b.d.drawCard());
+        compHand.add(b.d.drawCard());
+        if(b.calculateHand(b.userHand) < 21){
+          System.out.println("Sum: " + Integer.toString(b.calculateHand(b.userHand)) + "Cards: " + b.cardName(b.userHand));
+          System.out.println("Sum: " + Integer.toString(b.calculateHand(b.compHand)) + "Cards: " + b.cardName(b.compHand));
+        }
+        }
+        else if(b.calculateHand(b.userHand) > 21){
+          System.out.println("Player's sum: " + Integer.toString(b.calculateHand(b.userHand)) + "Player's cards: " + b.cardName(b.userHand));
+          System.out.println("Dealer's sum: " + Integer.toString(b.calculateHand(b.compHand)) + "Dealer's cards: " + b.cardName(b.compHand));
+          System.out.println("WASTED");
+        }
+        else if((b.calculateHand(b.userHand) == 21 )| (b.calculateHand(b.compHand) > 21) ){
+          System.out.println("Player's sum: " + Integer.toString(b.calculateHand(b.userHand)) + "Player's cards: " + b.cardName(b.userHand));
+          System.out.println("Dealer's sum: " + Integer.toString(b.calculateHand(b.compHand)) + "Dealer's cards: " + b.cardName(b.compHand));
+          System.out.println("VICTORY");
+        }
+      else if(sc.nextLine() == "2"){
+        if(b.calculateHand(b.compHand) <= 16){
+          compHand.add(b.d.drawCard());
+          System.out.println("Dealer's sum: " + " " + Integer.toString(b.calculateHand(b.compHand)) + "Dealer's cards: " + b.cardName(b.compHand));
+        }
 
+      }
+      else{
+        game = false;
+      }
     }
 
 
