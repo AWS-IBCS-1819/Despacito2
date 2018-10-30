@@ -51,8 +51,8 @@ public class Blackjack extends Card{
     while(game = true){//just keep running til its false
       System.out.println (" 1.Hit\n 2.Stay\n 3.Quit");
       if(sc.nextLine() == "1"){
-        userHand.add(b.d.drawCard());
-        compHand.add(b.d.drawCard());
+        b.userHand.add(b.d.drawCard());
+        b.compHand.add(b.d.drawCard());
         if(b.calculateHand(b.userHand) < 21){
           System.out.println("Sum: " + Integer.toString(b.calculateHand(b.userHand)) + "Cards: " + b.cardName(b.userHand));
           System.out.println("Sum: " + Integer.toString(b.calculateHand(b.compHand)) + "Cards: " + b.cardName(b.compHand));
@@ -72,7 +72,7 @@ public class Blackjack extends Card{
         }
       else if(sc.nextLine() == "2"){
         if(b.calculateHand(b.compHand) <= 16){
-          compHand.add(b.d.drawCard());
+          b.compHand.add(b.d.drawCard());
           if(b.calculateHand(b.compHand) > 21 ){
             System.out.println("Player's sum: " + Integer.toString(b.calculateHand(b.userHand)) + "Player's cards: " + b.cardName(b.userHand));
             System.out.println("Dealer's sum: " + Integer.toString(b.calculateHand(b.compHand)) + "Dealer's cards: " + b.cardName(b.compHand));
