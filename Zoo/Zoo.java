@@ -8,10 +8,7 @@ public class Zoo {
 
   public static void main(String[] args) {
     Zoo z = new Zoo();
-    //the Zoo
-    //we have scps
-    //a Rock
-    //and all the fucks i'd never give
+
 
     ArrayList<Enclosure> en = new ArrayList<Enclosure>();
     Enclosure Sea = new Enclosure();
