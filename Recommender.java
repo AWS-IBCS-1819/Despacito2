@@ -20,12 +20,13 @@ public class Recommender {
 
     movies = new ArrayList<String> ();
     friends = new ArrayList<String> ();
+    Chungus = new ArrayList<Integer> ();
   }
 
 
   public void collaborative(String movieName) {
 
-    try {
+    /*try {
     File file = new File("collab.txt");
     Scanner collabo = new Scanner(file);
     StringBuilder no = new StringBuilder();
@@ -34,9 +35,11 @@ public class Recommender {
     StringBuilder Donkey = new StringBuilder();
     Boolean BigChungus = false;
 
-    while (Shrek.hasNext()) {
-      Chungus.add(Shrek.next());
+    while (Shrek.hasNextInt()) {
+      Chungus.add(Shrek.nextInt());
     }
+
+    System.out.println(Chungus);
 
     while (collabo.hasNext()){
       no.append(collabo.next() + " ");
@@ -49,7 +52,8 @@ public class Recommender {
       collab.printStackTrace();
     }
 
-    System.out.println(movies);
+    System.out.println(movies);*/
+    //return movies;
   }
 
   public void contentBased(String movieName) {
@@ -76,10 +80,43 @@ public class Recommender {
 
 
   public static void main(String[] args) {
-    System.out.println("Welcome, please pick a movie you have seen: ");
-    System.out.println("Avengers:InfinityWar \n ReadyPlayerOne \n Spiderman:Homecoming \n It \n Room \n Coco \n Up \n TheBigShort \n Arrival \n EdgeofTomorrow \n Zootopia \n Her \n ToyStory3 \n ThePerksOfBeingAWallFlower ");
-    System.out.println("Please type the movie here: ");
+    //System.out.println("Welcome, please pick a movie you have seen: ");
+    //System.out.println("Avengers:InfinityWar \n ReadyPlayerOne \n Spiderman:Homecoming \n It \n Room \n Coco \n Up \n TheBigShort \n Arrival \n EdgeofTomorrow \n Zootopia \n Her \n ToyStory3 \n ThePerksOfBeingAWallFlower ");
+    //System.out.println("Please type the movie here: ");
+
+    ArrayList<String> movies = new ArrayList<String>;
+    ArrayList<String> friends = new ArrayList<String>;
+    ArrayList<Integer> Chungus = new ArrayList<String>;
+
     Scanner input = new Scanner(System.in);
+    Recommender pickle = new Recommender();
+    try {
+    File file = new File("collab.txt");
+    Scanner collabo = new Scanner(file);
+    StringBuilder no = new StringBuilder();
+    String temp = collabo.next();
+    Scanner Shrek = new Scanner(file);
+    StringBuilder Donkey = new StringBuilder();
+    Boolean BigChungus = false;
+
+    while (Shrek.hasNextInt()) {
+      Chungus.add(Shrek.nextInt());
+    }
+
+    System.out.println(Chungus);
+
+    while (collabo.hasNext()){
+      no.append(collabo.next() + " ");
+        movies.add(collabo.next());
+      }
+
+    }
+
+    catch (FileNotFoundException collab){
+      collab.printStackTrace();
+    }
+
+    System.out.println(movies);
     //call recommendation methods
 
     //if possible go again
