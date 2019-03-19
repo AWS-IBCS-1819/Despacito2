@@ -13,15 +13,19 @@ public class TimeEstimate extends JFrame implements ActionListener{
 
   public TimeEstimate(String s) {
   super(s);
+  setSize(600,400);
+  setLocation(10,200);
   setLayout(new BorderLayout());
   Prof = new JButton("Profile");
-  add(Prof);
+  add(Prof, BorderLayout.LINE_START);
   Pref = new JButton("Preference");
-  add(Pref);
+  add(Pref, BorderLayout.CENTER);
   Task = new JButton("Time Estimate");
+  add(Task, BorderLayout.LINE_END);
   Prof.addActionListener(this);
   Pref.addActionListener(this);
   Task.addActionListener(this);
+  setVisible(true);
 
 
   // Window Listeners
@@ -40,13 +44,18 @@ public class TimeEstimate extends JFrame implements ActionListener{
 
   public void actionPerformed(ActionEvent e) {
         if(e.getSource() == Prof) {
-          //frame.setVisible(true);
+          ProfilePage frame = new ProfilePage("Profile");
+          frame.setVisible(true);
+          setVisible(false);
         }
         else if(e.getSource() == Pref) {
-          //frame2.setVisible(true);
+          PreferencePage frame2 = new PreferencePage("Pereference");
+          frame2.setVisible(true);
+          setVisible(false);
         }
         else if(e.getSource() == Task) {
-          //frame3.setVisible(true);
+          OutputPage frame3 = new OutputPage("Time Estimate");
+          setVisible(false);
         }
     }
 
@@ -54,9 +63,6 @@ public class TimeEstimate extends JFrame implements ActionListener{
   public static void main(String[] args) {
 
     TimeEstimate Myframe = new TimeEstimate("Homework Manager");
-    Myframe.setSize(300,200);
-    Myframe.setLocation(10,200);
-    Myframe.setVisible(true);
 
     /*ActionListener listener = new ActionListener();
 

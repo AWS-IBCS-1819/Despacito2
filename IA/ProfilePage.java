@@ -4,16 +4,25 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class ProfilePage extends JFrame implements ActionListener{
-  public ProfilePage(String s) {
+
+    JButton Back;
+    JButton HWFile;
+
+
+    public ProfilePage(String s) {
+
   // Frame Parameters
-  setTitle(s);
-  setSize(300,200); // default size is 0,0
-  setLocation(10,200); // default is 0,0 (top left corner)
+      super(s);
+      setSize(600,400); // default size is 0,0
+      setLocation(10,200); // default is 0,0 (top left corner)
+      Back = new JButton("Back");
+      add(Back);
+      Back.addActionListener(this);
 
   // Window Listeners
-  addWindowListener(new WindowAdapter() {
-    public void windowClosing(WindowEvent e) {
-    System.exit(0);
+      addWindowListener(new WindowAdapter() {
+      public void windowClosing(WindowEvent e) {
+        System.exit(0);
     } //windowClosing
   }); //addWindowLister
 
@@ -21,12 +30,14 @@ public class ProfilePage extends JFrame implements ActionListener{
 
   }
   public void actionPerformed(ActionEvent e) {
-        // code
+    TimeEstimate Mainframe = new TimeEstimate("Homework Manager");
+    Mainframe.setVisible(true);
+    setVisible(false);
     }
 
   public static void main(String[] args) {
-    JFrame frame = new ProfilePage("Profile");
+    /*JFrame frame = new ProfilePage("Profile");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setVisible(true);
+    frame.setVisible(true);*/
   }
 }
