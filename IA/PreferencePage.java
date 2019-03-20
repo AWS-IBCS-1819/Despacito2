@@ -30,9 +30,10 @@ public class PreferencePage extends JFrame implements ActionListener{
   }
 
   public void actionPerformed(ActionEvent e) {
+    if(e.getSource() == Back){
     TimeEstimate Mainframe = new TimeEstimate("Homework Manager");
     Mainframe.setVisible(true);
-    setVisible(false);
+    setVisible(false);}
     }
 
 
