@@ -8,6 +8,7 @@ public class TimeEstimate extends JFrame implements ActionListener{
 
   JButton Prof;
   JButton Task;
+  JButton Pref;
 
 
   public TimeEstimate(String s) {
@@ -17,19 +18,21 @@ public class TimeEstimate extends JFrame implements ActionListener{
   setLayout(new BorderLayout());
   Prof = new JButton("Profile");
   add(Prof, BorderLayout.LINE_START);
+  Pref = new JButton("Input HW");
+  add(Pref, BorderLayout.CENTER);
   Task = new JButton("Time Estimate");
   add(Task, BorderLayout.LINE_END);
   Prof.addActionListener(this);
+  Pref.addActionListener(this);
   Task.addActionListener(this);
   setVisible(true);
 
 
-  // Window Listeners
   addWindowListener(new WindowAdapter() {
     public void windowClosing(WindowEvent e) {
     System.exit(0);
-    } //windowClosing
-  }); //addWindowLister
+    }
+  });
 
 
 
@@ -42,6 +45,11 @@ public class TimeEstimate extends JFrame implements ActionListener{
         if(e.getSource() == Prof) {
           ProfilePage frame = new ProfilePage("Profile");
           frame.setVisible(true);
+          setVisible(false);
+        }
+
+        else if(e.getSource() == Pref) {
+          PreferencePage frame3 = new PreferencePage("Input HW");
           setVisible(false);
         }
 

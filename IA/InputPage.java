@@ -12,6 +12,7 @@ public class InputPage extends JFrame implements ActionListener{
   JTextField c3;
   JTextField c4;
   JButton s1;
+  JButton Back;
   String hwClass;
   String input;
   Double Time;
@@ -33,6 +34,8 @@ public class InputPage extends JFrame implements ActionListener{
     setLocation(10,200);
     layout = new GroupLayout(this.getContentPane());
     getContentPane().setLayout(layout);
+    layout.setAutoCreateGaps(true);
+    layout.setAutoCreateContainerGaps(true);
 
     myLabel = new JLabel("Class");
     c1 = new JTextField(20);
@@ -54,13 +57,14 @@ public class InputPage extends JFrame implements ActionListener{
     c4.addActionListener(this);
     add(myLabel);
     add(c4);
+    Back = new JButton("Return");
+    add(Back);
+    Back.addActionListener(this);
 
     s1 = new JButton("Submit");
     add(s1);
     s1.addActionListener(this);
 
-    layout.setAutoCreateGaps(true);
-    layout.setAutoCreateContainerGaps(true);
 
 
     setVisible(true);
@@ -76,6 +80,12 @@ public class InputPage extends JFrame implements ActionListener{
 
   public void actionPerformed(ActionEvent ae){
 
+    if(ae.getSource() == Back)  {
+      ProfilePage pP = new ProfilePage("Profile");
+    }
+    else {
+
+
       HWclass.add(c1.getText());
 
 
@@ -90,7 +100,7 @@ public class InputPage extends JFrame implements ActionListener{
       String c = c4.getText();
       int d = Integer.parseInt(c, 10);
       HWamount.add(d);
-
+}
 
   }
   public static void main(String[] args) {
